@@ -141,7 +141,18 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
     <None Include="CustomContainers.VC.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="libs\containers\include\ArrayList\ArrayList.h" />
+    <ClInclude Include="libs\containers\include\LinkedList\LinkedList.h" />
+    <ClInclude Include="libs\containers\include\LinkedList\ListNode.h" />
+    <ClInclude Include="libs\include\LinkedList.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\ArrayList\ArrayList.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
