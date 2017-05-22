@@ -152,7 +152,7 @@
     <ClInclude Include="libs\include\LinkedList.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\ArrayList\ArrayList.cpp" />
+    <Library Include="libs\containers\containers_d.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -37,8 +37,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\ArrayList\ArrayList.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <Library Include="libs\containers\containers_d.lib" />
   </ItemGroup>
 </Project>

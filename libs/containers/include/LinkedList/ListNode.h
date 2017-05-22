@@ -6,7 +6,6 @@ class ListNode {
 public:
 	ListNode() = default;
 	ListNode(T obj) {
-		next = prev = nullptr;
 		value = obj;
 	}
 	~ListNode() = default;
