@@ -54,8 +54,16 @@ auto main(int argc, char** argv) -> int {
 
 	std::cout << "Size: " << intList.size() << "\n";
 
-	for (auto iter = intList.begin(); iter != intList.end(); iter = intList.next())
+	for (auto iter = intList.end(); iter != intList.begin(); iter = intList.prev())
 		std::cout << *iter << "\n";
+
+
+	///STACK
+	//ListNode<int>* it = intList.prev();
+	//while (it != nullptr) {
+
+	//	it = intList.prev();
+	//}
 
 	int result = Catch::Session().run(argc, argv);
 

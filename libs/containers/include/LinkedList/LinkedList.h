@@ -1,11 +1,24 @@
 #pragma once
-//////////////////////////////////////////////
-////	With help from Jack Hunt
-
 #include <memory>
-#include <LinkedList\ListNode.h>
 #include <iostream>
 
+template <class T>
+class ListNode {
+public:
+	ListNode() = default;
+	ListNode(T obj) {
+		value = obj;
+	}
+	~ListNode() = default;
+
+	operator T() { return value; }
+
+	ListNode *next, *prev;
+	T value;
+};
+
+
+/* With assistance from Jack Hunt*/
 template <class T>
 class LinkedList {
 public:
@@ -38,12 +51,6 @@ public:
 	}
 	/** Remove the last element of the container*/
 	void pop_back() {
-		//ListNode<T>* current = last;
-		//if (current->prev != nullptr && current->next == nullptr) {
-		//	current->prev->next = nullptr;
-		//	delete current;
-		//	return;
-		//}
 		// Reset the iterator pointers
 		if (last != first) last->prev->next = nullptr;
 		if (last == first) first = nullptr;
@@ -128,6 +135,7 @@ public:
 		return current->value;
 	}
 
+	/// ITERATOR FUNCTIONS
 	ListNode<T>* next() {
 		current = current->next;
 

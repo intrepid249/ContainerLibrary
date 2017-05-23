@@ -32,7 +32,13 @@
     <ClInclude Include="libs\containers\include\ArrayList\ArrayList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="libs\containers\include\LinkedList\ListNode.h">
+    <ClInclude Include="libs\containers\include\Stack\Stack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\containers\include\HashMap\HashMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\containers\include\Queue\Queue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
