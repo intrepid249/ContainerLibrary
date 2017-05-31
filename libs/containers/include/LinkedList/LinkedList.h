@@ -126,7 +126,7 @@ public:
 	}
 
 	T operator [](unsigned int index) {
-		if (index >= size() || index < 0) return NULL;
+		if (index >= size() || index < 0) return T();
 
 		ListNode<T> *current = first;
 		for (auto i = 0; i < index; ++i) {

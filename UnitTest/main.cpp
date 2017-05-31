@@ -54,8 +54,9 @@ auto main(int argc, char** argv) -> int {
 
 	std::cout << "Size: " << intList.size() << "\n";
 
-	for (auto iter = intList.end(); iter != intList.begin(); iter = intList.prev())
-		std::cout << *iter << "\n";
+	for (unsigned int i = 0; i < intList.size(); ++i) {
+		std::cout << intList[i] << "\n";
+	}
 
 
 	///STACK
