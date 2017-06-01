@@ -13,58 +13,79 @@ using std::string;
 #include "catch.hpp"
 
 #include <LinkedList\LinkedList.h>
-
 LinkedList<int> intList;
-LinkedList<string> strList;
 
-TEST_CASE("Linked List implementation", "[linkedlist]") {
-	REQUIRE(intList.size() == 3);						// Test size()
+#include <ArrayList\ArrayList.h>
+ArrayList<string> stringArray;
 
-	// Not quite sure how to test a subscript operator independantly...???
-	// Since it requires an insertion/push_back method to be called first
-	REQUIRE(intList[0] == 7);							// Test both subscript and insert()
+#include <Map\map.hpp>
+Map<int, string> testMap;
 
-	REQUIRE(intList[1] != 1);							// Test erase()
-	REQUIRE(intList[intList.size() - 1] != 5);			// Test pop_back()
+TEST_CASE("Container Unit Tests", "[containers]") {
+	SECTION("Linked List") {
+		intList.push_back(1);
+		intList.push_back(2);
+		intList.push_back(4);
+		intList.push_back(5);
 
-	// Test iterator
-	int iterCount = 0;
-	for (auto iter = intList.begin(); iter != intList.end(); iter = intList.next())
-		iterCount++;
-	REQUIRE(iterCount == intList.size());
+		CHECK(intList.size() == 4);						// Test size()
 
-	// Test indexed loop
-	for (iterCount = 0; iterCount < intList.size();)
-		iterCount++;
-	REQUIRE(iterCount == intList.size());
+		intList.insert(7, 0);
+		// Not quite sure how to test a subscript operator independantly...???
+		// Since it requires an insertion/push_back method to be called first
+		// To put content into the list
+		CHECK(intList[0] == 7);							// Test both subscript and insert()
+
+		intList.erase(1);
+		CHECK(intList[1] != 1);							// Test erase()
+
+		intList.pop_back();
+		CHECK(intList[intList.size() - 1] != 5);			// Test pop_back()
+		CHECK(intList.size() != 4);
+
+
+		// Test iterator
+		unsigned int iterCount = 0;
+		for (auto iter = intList.begin(); iter != intList.end(); iter = intList.next())
+			iterCount++;
+		CHECK(iterCount == intList.size());
+
+
+		// Test indexed loop
+		for (iterCount = 0; iterCount < intList.size();)
+			iterCount++;
+		CHECK(iterCount == intList.size());
+	}
+
+	SECTION("Array List") {
+		stringArray.push_back("Hello");
+		stringArray.push_back("Hi");
+		stringArray.push_back("Index 2");
+		stringArray.push_back("Steven");
+
+		REQUIRE(stringArray.size() == 4);
+
+		stringArray.insert_at(1, "boop");
+
+		REQUIRE(stringArray[1] == "boop");
+
+		stringArray.erase_at(3);
+		REQUIRE(stringArray[0] != "Index 2");
+
+		stringArray.pop_back();
+		REQUIRE(stringArray.size() == 3);
+	}
+}
+
+TEST_CASE("Testing Something", "[a_thing]") {
+
 }
 
 auto main(int argc, char** argv) -> int {
-	intList.push_back(1);
-	intList.push_back(2);
+#pragma region VisualTest
+	//testMap[1] = "Hi";
+#pragma endregion
 
-	intList.insert(7, 0);
-
-	intList.push_back(4);
-	intList.push_back(5);
-
-	intList.erase(1);
-
-	intList.pop_back();
-
-	std::cout << "Size: " << intList.size() << "\n";
-
-	for (unsigned int i = 0; i < intList.size(); ++i) {
-		std::cout << intList[i] << "\n";
-	}
-
-
-	///STACK
-	//ListNode<int>* it = intList.prev();
-	//while (it != nullptr) {
-
-	//	it = intList.prev();
-	//}
 
 	int result = Catch::Session().run(argc, argv);
 

@@ -147,8 +147,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="libs\containers\include\ArrayList\ArrayList.h" />
-    <ClInclude Include="libs\containers\include\HashMap\HashMap.h" />
     <ClInclude Include="libs\containers\include\LinkedList\LinkedList.h" />
+    <ClInclude Include="libs\containers\include\Map\map.hpp" />
+    <ClInclude Include="libs\containers\include\Map\pair.hpp" />
     <ClInclude Include="libs\containers\include\Queue\Queue.h" />
     <ClInclude Include="libs\containers\include\Stack\Stack.h" />
     <ClInclude Include="libs\include\LinkedList.h" />

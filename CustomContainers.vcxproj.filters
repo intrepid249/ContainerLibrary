@@ -35,10 +35,13 @@
     <ClInclude Include="libs\containers\include\Stack\Stack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="libs\containers\include\HashMap\HashMap.h">
+    <ClInclude Include="libs\containers\include\Queue\Queue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="libs\containers\include\Queue\Queue.h">
+    <ClInclude Include="libs\containers\include\Map\pair.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\containers\include\Map\map.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
