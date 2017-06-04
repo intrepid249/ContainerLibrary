@@ -83,7 +83,7 @@ TEST_CASE("Testing Something", "[a_thing]") {
 
 auto main(int argc, char** argv) -> int {
 #pragma region VisualTest
-	//testMap[1] = "Hi";
+	testMap[1] = "Hi";
 #pragma endregion
 
 

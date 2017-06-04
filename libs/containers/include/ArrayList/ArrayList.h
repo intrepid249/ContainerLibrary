@@ -69,6 +69,10 @@ public:
 		return data[_index];
 	}
 
+	T& get(T* _iter) {
+		return (*_iter);
+	}
+
 	unsigned int size() { return m_size; }
 
 	iterator begin() { return &data[0]; }
