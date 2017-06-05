@@ -1,6 +1,7 @@
 #pragma once
 #include "pair.hpp"
 #include <ArrayList\ArrayList.h>
+#include <vector>
 #include <iostream>
 
 template <class T1, class T2>
@@ -9,18 +10,27 @@ public:
 	Map() {}
 
 	T2& operator [](T1 _key) {
-		/*Pair<T1, T2>* thing = std::find(m_elements.begin(), m_elements.end(), _key);
-		std::cout << thing->first << "\n";*/
-
-		for (Pair<T1, T2>* iter = m_elements.begin(); m_elements.end(); iter++) {
-			/*if (iter->first == nullptr) {
-
-			}*/
-		}
 		
-		return T2();
+		for (auto iter = m_elements.begin(); iter != m_elements.end(); iter++) {
+			
+		}
+
+		return InsertDefault(_key).second;
+
+	}
+
+protected:
+
+	Pair<T1, T2>& InsertDefault(const T1 &key) {
+		// TODO: assert if key already exists, or ignore, or overwrite the existing value with default
+		auto value = T2();
+		Pair<T1, T2> pair = Pair<T1, T2>(key, value);
+
+		m_elements.push_back(pair);
+		return (*m_elements.end());
 	}
 
 private:
-	ArrayList<Pair<T1, T2>> m_elements;
+	std::vector< Pair<T1, T2> > m_elements;
+	// ArrayList< Pair<T1, T2> > m_elements;
 };

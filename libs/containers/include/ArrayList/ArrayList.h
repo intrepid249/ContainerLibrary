@@ -60,9 +60,9 @@ public:
 	/** Reserve space for new items by increasing the capacity and allocating new memory*/
 	void reserve(unsigned int _capacity = 10) {
 		m_capacity += _capacity;
-		std::unique_ptr<T[]> newData(new T[m_capacity]);
-		memcpy(newData.get(), data.get(), sizeof(T) * m_size);
-		data = std::move(newData);
+		T *newData(new T[m_capacity]);
+		memcpy(newData, data, sizeof(T) * m_size);
+		data = newData;
 	}
 
 	T& operator [](unsigned int _index) {
@@ -82,6 +82,6 @@ public:
 
 private:
 	unsigned int m_capacity, m_size;
-	std::unique_ptr<T[]> data;
+	T *data;
 };
 

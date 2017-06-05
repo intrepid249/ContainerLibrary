@@ -2,7 +2,10 @@
 #include <ostream>
 
 template <class T1, class T2>
-struct Pair {
+class Pair {
+public:
+	Pair() {}
+
 	Pair(T1 &_first, T2 &_second) : first(_first), second(_second) {}
 
 	template<class U, class V>

@@ -19,7 +19,7 @@ LinkedList<int> intList;
 ArrayList<string> stringArray;
 
 #include <Map\map.hpp>
-Map<int, string> testMap;
+Map<int, int> testMap;
 
 TEST_CASE("Container Unit Tests", "[containers]") {
 	SECTION("Linked List") {
@@ -82,8 +82,16 @@ TEST_CASE("Testing Something", "[a_thing]") {
 }
 
 auto main(int argc, char** argv) -> int {
+
 #pragma region VisualTest
-	testMap[1] = "Hi";
+	
+	
+	testMap[1] = 10;
+	testMap[4] = 20;
+
+	int a = testMap[1];
+	int b = testMap[4];
+
 #pragma endregion
 
 
