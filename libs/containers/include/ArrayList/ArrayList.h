@@ -60,7 +60,7 @@ public:
 	/** Reserve space for new items by increasing the capacity and allocating new memory*/
 	void reserve(unsigned int _capacity = 10) {
 		m_capacity += _capacity;
-		T *newData(new T[m_capacity]);
+		T *newData = new T[m_capacity];
 		memcpy(newData, data, sizeof(T) * m_size);
 		data = newData;
 	}
@@ -71,6 +71,10 @@ public:
 
 	T& get(T* _iter) {
 		return (*_iter);
+	}
+
+	T& back() {
+		return data[m_size - 1];
 	}
 
 	unsigned int size() { return m_size; }

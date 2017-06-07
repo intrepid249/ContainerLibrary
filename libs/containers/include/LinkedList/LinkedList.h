@@ -23,6 +23,9 @@ class LinkedList {
 	};
 
 public:
+	typedef ListNode<T>* iterator;
+	typedef const ListNode<T>* const_iterator;
+
 	LinkedList() {
 		m_size = 0;
 		first = last = nullptr;
@@ -137,13 +140,12 @@ public:
 	}
 
 	/// ITERATOR FUNCTIONS
-	ListNode<T>* next() {
+	iterator next() {
 		current = current->next;
 
 		return current;
 	}
-
-	ListNode<T>* prev() {
+	iterator prev() {
 		if (current == nullptr) return nullptr;
 
 		if (current->prev == nullptr) return nullptr;

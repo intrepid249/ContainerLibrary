@@ -84,16 +84,18 @@ TEST_CASE("Testing Something", "[a_thing]") {
 auto main(int argc, char** argv) -> int {
 
 #pragma region VisualTest
-	
-	
+
 	testMap[1] = 10;
 	testMap[4] = 20;
 
 	int a = testMap[1];
 	int b = testMap[4];
 
-#pragma endregion
+	std::cout << a << " " << b << " " << testMap[5] << "\n";
 
+#pragma endregion
+	std::map<int, string> stdMap;
+	std::cout << "Std: " << stdMap[1] << "\n";
 
 	int result = Catch::Session().run(argc, argv);
 
