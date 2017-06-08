@@ -71,7 +71,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)libs\containers\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)libs\sort\include;$(SolutionDir)libs\containers\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)libs\containers\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -79,7 +79,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)libs\containers\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)libs\sort\include;$(SolutionDir)libs\containers\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)libs\containers\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

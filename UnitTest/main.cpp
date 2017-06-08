@@ -18,6 +18,8 @@ using std::string;
 #include <Queue\Queue.hpp>
 #include <Stack\Stack.hpp>
 
+#include <MergeSort\merge_sort.hpp>
+
 TEST_CASE("Container Unit Tests", "[containers]") {
 	SECTION("Linked List") {
 		LinkedList<int> intList;
@@ -121,12 +123,27 @@ TEST_CASE("Container Unit Tests", "[containers]") {
 	}
 }
 
-TEST_CASE("Testing Something", "[a_thing]") {
+TEST_CASE("Sorting", "[sorting]") {
+	SECTION("Merge Sort") {
+		ArrayList<int> srt;
+		srt.push_back(10);
+		srt.push_back(0);
+		srt.push_back(20);
+		srt.push_back(80);
+		srt.push_back(30);
 
+		srt.sort();
+
+		REQUIRE(srt[0] == 0);
+		REQUIRE(srt[1] == 10);
+		REQUIRE(srt[2] == 20);
+		REQUIRE(srt[3] == 30);
+		REQUIRE(srt[4] == 80);
+	}
 }
 
 auto main(int argc, char** argv) -> int {
-
+#if 0
 #pragma region VisualTest
 
 	ArrayList<int> lst;
@@ -146,6 +163,11 @@ auto main(int argc, char** argv) -> int {
 
 	std::cout << a << " " << b << " " << m[5] << "\n";
 
+#pragma endregion
+#endif
+
+#pragma region Sort Visual Test
+	
 #pragma endregion
 
 	int result = Catch::Session().run(argc, argv);

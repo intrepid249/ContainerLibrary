@@ -1,6 +1,8 @@
 #pragma once
+#include <algorithm>
 #include <memory>
 #include <assert.h>
+#include <MergeSort\merge_sort.hpp>
 
 template <class T>
 class ArrayList {
@@ -9,6 +11,7 @@ public:
 	typedef const T* const_iterator;
 
 	ArrayList() : m_capacity(0), m_size(0) {}
+	ArrayList(unsigned int _capacity) : m_capacity(_capacity), m_size(0) { reserve(_capacity); memset(data, 0, _capacity); }
 	~ArrayList() {
 		delete[] data;
 	}
@@ -72,6 +75,10 @@ public:
 		data = newData;
 	}
 
+	void sort() {
+		ms::merge_sort(data, 0, (int)size() - 1);
+	}
+
 	T& operator [](unsigned int _index) {
 		assert(_index >= 0 && "Index out of bounds ( cannot have negative index )");
 		assert(_index <= m_size && "Index out of bounds ( cannot exceed size of container )");
@@ -90,6 +97,8 @@ public:
 	const_iterator begin() const { return &data[0]; }
 	iterator end() { return &data[m_size]; }
 	const_iterator end() const { return &data[m_size]; }
+
+	explicit operator T*() { return data; }
 
 private:
 	unsigned int m_capacity, m_size;

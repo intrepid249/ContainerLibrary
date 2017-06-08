@@ -73,13 +73,13 @@
     <OutDir>$(SolutionDir)libs\containers\</OutDir>
     <TargetName>containers_d</TargetName>
     <IntDir>$(SolutionDir)intermediate\$(Configuration)\</IntDir>
-    <IncludePath>$(SolutionDir)libs\containers\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)libs\sort\include;$(SolutionDir)libs\containers\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)libs\containers\</OutDir>
     <TargetName>containers</TargetName>
     <IntDir>$(SolutionDir)intermediate\$(Configuration)\</IntDir>
-    <IncludePath>$(SolutionDir)libs\containers\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)libs\sort\include;$(SolutionDir)libs\containers\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -152,6 +152,7 @@
     <ClInclude Include="libs\containers\include\Queue\Queue.hpp" />
     <ClInclude Include="libs\containers\include\Stack\Stack.hpp" />
     <ClInclude Include="libs\include\LinkedList.h" />
+    <ClInclude Include="libs\sort\include\MergeSort\merge_sort.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

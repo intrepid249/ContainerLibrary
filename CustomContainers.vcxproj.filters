@@ -41,5 +41,8 @@
     <ClInclude Include="libs\containers\include\Queue\Queue.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="libs\sort\include\MergeSort\merge_sort.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
