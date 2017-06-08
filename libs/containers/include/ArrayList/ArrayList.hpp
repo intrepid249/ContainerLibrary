@@ -75,8 +75,8 @@ public:
 		data = newData;
 	}
 
-	void sort() {
-		ms::merge_sort(data, 0, (int)size() - 1);
+	void sort(bool ascending = true) {
+		ms::merge_sort(data, 0, (int)size() - 1, ascending);
 	}
 
 	T& operator [](unsigned int _index) {

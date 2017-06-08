@@ -125,20 +125,35 @@ TEST_CASE("Container Unit Tests", "[containers]") {
 
 TEST_CASE("Sorting", "[sorting]") {
 	SECTION("Merge Sort") {
-		ArrayList<int> srt;
-		srt.push_back(10);
-		srt.push_back(0);
-		srt.push_back(20);
-		srt.push_back(80);
-		srt.push_back(30);
+		ArrayList<int> srtAsc;
+		srtAsc.push_back(10);
+		srtAsc.push_back(0);
+		srtAsc.push_back(20);
+		srtAsc.push_back(80);
+		srtAsc.push_back(30);
 
-		srt.sort();
+		srtAsc.sort();
 
-		REQUIRE(srt[0] == 0);
-		REQUIRE(srt[1] == 10);
-		REQUIRE(srt[2] == 20);
-		REQUIRE(srt[3] == 30);
-		REQUIRE(srt[4] == 80);
+		REQUIRE(srtAsc[0] == 0);
+		REQUIRE(srtAsc[1] == 10);
+		REQUIRE(srtAsc[2] == 20);
+		REQUIRE(srtAsc[3] == 30);
+		REQUIRE(srtAsc[4] == 80);
+
+		ArrayList<int> srtDesc;
+		srtDesc.push_back(10);
+		srtDesc.push_back(0);
+		srtDesc.push_back(20);
+		srtDesc.push_back(80);
+		srtDesc.push_back(30);
+
+		srtDesc.sort(false);
+
+		REQUIRE(srtDesc[0] == 80);
+		REQUIRE(srtDesc[1] == 30);
+		REQUIRE(srtDesc[2] == 20);
+		REQUIRE(srtDesc[3] == 10);
+		REQUIRE(srtDesc[4] == 0);
 	}
 }
 
@@ -167,7 +182,18 @@ auto main(int argc, char** argv) -> int {
 #endif
 
 #pragma region Sort Visual Test
-	
+	ArrayList<int> srt;
+	srt.push_back(10);
+	srt.push_back(0);
+	srt.push_back(20);
+	srt.push_back(80);
+	srt.push_back(30);
+
+	srt.sort();
+
+	for (auto i : srt)
+		std::cout << i << " ";
+	std::cout << "\n";
 #pragma endregion
 
 	int result = Catch::Session().run(argc, argv);
