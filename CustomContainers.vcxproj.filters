@@ -26,19 +26,19 @@
     <ClInclude Include="libs\include\LinkedList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="libs\containers\include\LinkedList\LinkedList.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="libs\containers\include\ArrayList\ArrayList.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="libs\containers\include\Stack\Stack.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="libs\containers\include\Queue\Queue.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="libs\containers\include\Map\map.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\containers\include\Stack\Stack.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\containers\include\LinkedList\LinkedList.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\containers\include\ArrayList\ArrayList.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\containers\include\Queue\Queue.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

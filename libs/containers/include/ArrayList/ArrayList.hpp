@@ -9,7 +9,9 @@ public:
 	typedef const T* const_iterator;
 
 	ArrayList() : m_capacity(0), m_size(0) {}
-	~ArrayList() {}
+	~ArrayList() {
+		delete[] data;
+	}
 
 	/** Append an item to the end of the container*/
 	void push_back(T item) {
@@ -21,13 +23,15 @@ public:
 		data[m_size++] = item;
 	}
 
-	/** Remove the last element of the list and remove it*/
+	/** Remove the last element of the list*/
 	void pop_back() {
-		data[m_size--] = T();
+		data[--m_size] = T();
 	}
 
 	/** Insert an item at the specified index*/
 	void insert_at(unsigned int _index, T item) {
+		assert( _index >= 0 && "Index out of bounds ( cannot have negative index )");
+		assert(_index <= m_size && "Index out of bounds ( cannot exceed size of container )");
 		
 		// If we have reached capacity, expand to fit new elements
 		if (m_size == m_capacity)
@@ -49,6 +53,9 @@ public:
 
 	/** Remove the item at the specified index*/
 	void erase_at(unsigned int _index) {
+		assert(_index >= 0 && "Index out of bounds ( cannot have negative index )");
+		assert(_index <= m_size && "Index out of bounds ( cannot exceed size of container )");
+
 		// Shift elements to remove the item at the index
 		for (unsigned int i = _index + 1; i < m_capacity; ++i)
 			data[i - 1] = data[i];
@@ -66,17 +73,17 @@ public:
 	}
 
 	T& operator [](unsigned int _index) {
+		assert(_index >= 0 && "Index out of bounds ( cannot have negative index )");
+		assert(_index <= m_size && "Index out of bounds ( cannot exceed size of container )");
+
 		return data[_index];
 	}
 
-	T& get(T* _iter) {
-		return (*_iter);
-	}
+	T& get(T* _iter) { return (*_iter); }
+	T& front() { return data[0]; }
+	T& back() { return data[m_size - 1]; }
 
-	T& back() {
-		return data[m_size - 1];
-	}
-
+	bool empty() { return m_size == 0; }
 	unsigned int size() { return m_size; }
 
 	iterator begin() { return &data[0]; }

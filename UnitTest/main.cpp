@@ -12,17 +12,18 @@ using std::string;
 #define CATCH_CONFIG_RUNNER
 #include "catch.hpp"
 
-#include <LinkedList\LinkedList.h>
-LinkedList<int> intList;
-
-#include <ArrayList\ArrayList.h>
-ArrayList<string> stringArray;
-
+#include <LinkedList\LinkedList.hpp>
+#include <ArrayList\ArrayList.hpp>
 #include <Map\map.hpp>
-Map<int, int> testMap;
+#include <Queue\Queue.hpp>
+#include <Stack\Stack.hpp>
 
 TEST_CASE("Container Unit Tests", "[containers]") {
 	SECTION("Linked List") {
+		LinkedList<int> intList;
+
+		REQUIRE(intList.empty());
+
 		intList.push_back(1);
 		intList.push_back(2);
 		intList.push_back(4);
@@ -58,6 +59,10 @@ TEST_CASE("Container Unit Tests", "[containers]") {
 	}
 
 	SECTION("Array List") {
+		ArrayList<string> stringArray;
+
+		REQUIRE(stringArray.empty());
+
 		stringArray.push_back("Hello");
 		stringArray.push_back("Hi");
 		stringArray.push_back("Index 2");
@@ -75,6 +80,45 @@ TEST_CASE("Container Unit Tests", "[containers]") {
 		stringArray.pop_back();
 		REQUIRE(stringArray.size() == 3);
 	}
+
+	SECTION("Queue") {
+		Queue<int> testQueue;
+
+		REQUIRE(testQueue.empty());
+
+		testQueue.push(10);
+		testQueue.push(20);
+		testQueue.push(30);
+		testQueue.push(40);
+
+		REQUIRE(testQueue.front() == 10);
+		REQUIRE(testQueue.back() == 40);
+		REQUIRE(testQueue.size() == 4);
+
+		testQueue.pop();
+		REQUIRE((testQueue.back() == 30 && testQueue.size() == 3));
+	}
+
+	SECTION("Stack") {
+		Stack<int> testStack;
+
+		REQUIRE(testStack.empty());
+
+		testStack.push(10);
+		testStack.push(20);
+		testStack.push(30);
+		testStack.push(40);
+
+		REQUIRE(testStack.top() == 40);
+		REQUIRE(testStack.size() == 4);
+
+		testStack.pop();
+		REQUIRE((testStack.top() == 30 && testStack.size() == 3));
+	}
+
+	SECTION("Map") {
+		Map<int, int> testMap;
+	}
 }
 
 TEST_CASE("Testing Something", "[a_thing]") {
@@ -85,17 +129,24 @@ auto main(int argc, char** argv) -> int {
 
 #pragma region VisualTest
 
-	testMap[1] = 10;
-	testMap[4] = 20;
+	ArrayList<int> lst;
+	lst.push_back(10);
+	lst.push_back(20);
+	lst.pop_back();
+	for (auto i : lst)
+		std::cout << i << "\n";
+	
+	Map<int, int> m;
 
-	int a = testMap[1];
-	int b = testMap[4];
+	m[1] = 10;
+	m[4] = 20;
 
-	std::cout << a << " " << b << " " << testMap[5] << "\n";
+	int a = m[1];
+	int b = m[4];
+
+	std::cout << a << " " << b << " " << m[5] << "\n";
 
 #pragma endregion
-	std::map<int, string> stdMap;
-	std::cout << "Std: " << stdMap[1] << "\n";
 
 	int result = Catch::Session().run(argc, argv);
 

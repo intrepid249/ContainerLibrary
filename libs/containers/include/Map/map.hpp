@@ -1,5 +1,5 @@
 #pragma once
-#include <ArrayList\ArrayList.h>
+#include <ArrayList\ArrayList.hpp>
 
 template <class Key, class Val>
 class Map {
@@ -30,6 +30,9 @@ public:
 		
 		return insertDefault(_key).val;
 	}
+
+	bool empty() { return m_elements.empty(); }
+	unsigned int size() { return m_elements.size(); }
 
 protected:
 	Pair& insertDefault(const Key &_key) {
