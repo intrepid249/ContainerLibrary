@@ -11,6 +11,18 @@ public:
 	typedef const T* const_iterator;
 
 	ArrayList() : m_capacity(0), m_size(0) {}
+
+	// Remove the copy constructor and assignment operator for dealing with unique_ptr
+	ArrayList(ArrayList const &) = delete;
+	ArrayList &operator=(ArrayList const &) = delete;
+	// Use a move constructor and assignment operator instead
+	ArrayList(ArrayList &&o) : data(std::move(o.data)) {}
+	ArrayList &operator=(ArrayList &&o) {
+		if (this != &o)
+			data = std::move(o.data);
+		return *this;
+	}
+
 	ArrayList(unsigned int _capacity) : m_capacity(_capacity), m_size(0) { reserve(_capacity); memset(data, 0, _capacity); }
 	~ArrayList() {
 		delete[] data;
@@ -23,7 +35,7 @@ public:
 			reserve();
 
 		// Append a new item to the end of the list and update the size
-		data[m_size++] = item;
+		data[m_size++] = std::move(item);
 	}
 
 	/** Remove the last element of the list*/
