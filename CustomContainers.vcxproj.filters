@@ -44,5 +44,8 @@
     <ClInclude Include="libs\sort\include\MergeSort\merge_sort.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="libs\containers\include\Map\Pair.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

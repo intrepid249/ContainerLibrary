@@ -123,7 +123,7 @@ TEST_CASE("Container Unit Tests", "[containers]") {
 	}
 }
 
-TEST_CASE("Sorting", "[sorting]") {
+TEST_CASE("Sorting", "[sort]") {
 	SECTION("Merge Sort") {
 		ArrayList<int> srtAsc;
 		srtAsc.push_back(10);
@@ -157,17 +157,14 @@ TEST_CASE("Sorting", "[sorting]") {
 	}
 }
 
+TEST_CASE("Searching", "[search]") {
+	
+}
+
 auto main(int argc, char** argv) -> int {
-#if 0
+#if 1
 #pragma region VisualTest
 
-	ArrayList<int> lst;
-	lst.push_back(10);
-	lst.push_back(20);
-	lst.pop_back();
-	for (auto i : lst)
-		std::cout << i << "\n";
-	
 	Map<int, int> m;
 
 	m[1] = 10;
@@ -178,9 +175,26 @@ auto main(int argc, char** argv) -> int {
 
 	std::cout << a << " " << b << " " << m[5] << "\n";
 
+	std::cout << "Ranged for: ";
+	for (auto i : m)
+		std::cout << (int)i << " ";
+	std::cout << "\n";
+
+	std::cout << "Find: ";
+	auto iter = m.find(4);
+	if (iter != m.end())
+		std::cout << iter->second << "\n";
+
+	m.clear();
+	std::cout << "Cleared: ";
+	for (auto i : m)
+		std::cout << (int)i << " ";
+	std::cout << "\n";
+
 #pragma endregion
 #endif
 
+#if 0
 #pragma region Sort Visual Test
 	ArrayList<int> srt;
 	srt.push_back(10);
@@ -195,6 +209,7 @@ auto main(int argc, char** argv) -> int {
 		std::cout << i << " ";
 	std::cout << "\n";
 #pragma endregion
+#endif
 
 	int result = Catch::Session().run(argc, argv);
 

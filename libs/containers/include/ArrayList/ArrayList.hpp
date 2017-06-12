@@ -25,7 +25,8 @@ public:
 
 	ArrayList(unsigned int _capacity) : m_capacity(_capacity), m_size(0) { reserve(_capacity); memset(data, 0, _capacity); }
 	~ArrayList() {
-		delete[] data;
+		if (m_size > 0)
+			delete[] data;
 	}
 
 	/** Append an item to the end of the container*/
@@ -71,12 +72,19 @@ public:
 		assert(_index >= 0 && "Index out of bounds ( cannot have negative index )");
 		assert(_index <= m_size && "Index out of bounds ( cannot exceed size of container )");
 
-		// Shift elements to remove the item at the index
-		for (unsigned int i = _index + 1; i < m_capacity; ++i)
+		for (unsigned int i = _index + 1; i < m_capacity; ++i) {
 			data[i - 1] = data[i];
+		}
 
 		// Update the size
 		m_size--;
+	}
+
+	/** Remove the contents*/
+	void clear() {
+		if (m_size == 0) return;
+		for (int i = m_size; i > 0; --i)
+			erase_at(m_size - 1);
 	}
 
 	/** Reserve space for new items by increasing the capacity and allocating new memory*/

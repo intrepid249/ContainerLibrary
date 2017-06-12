@@ -7,6 +7,14 @@ template <class T>
 class Queue {
 public:
 	Queue() {}
+	Queue(Queue const &) = delete;
+	Queue &operator =(Queue const &) = delete;
+	Queue(Queue &&o) : m_data(std::move(o.m_data)) {}
+	Queue &operator =(Queue &&o) {
+		if (this != &o)
+			m_data = std::move(o.m_data);
+		return *this;
+	}
 	~Queue() {}
 
 	void push(const T& _item) {

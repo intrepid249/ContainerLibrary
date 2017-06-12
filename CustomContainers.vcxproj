@@ -149,6 +149,7 @@
     <ClInclude Include="libs\containers\include\ArrayList\ArrayList.hpp" />
     <ClInclude Include="libs\containers\include\LinkedList\LinkedList.hpp" />
     <ClInclude Include="libs\containers\include\Map\map.hpp" />
+    <ClInclude Include="libs\containers\include\Map\Pair.hpp" />
     <ClInclude Include="libs\containers\include\Queue\Queue.hpp" />
     <ClInclude Include="libs\containers\include\Stack\Stack.hpp" />
     <ClInclude Include="libs\include\LinkedList.h" />
